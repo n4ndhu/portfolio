@@ -1,23 +1,52 @@
+'use client';
 import { Button } from '@/components/ui/button';
 import { Linkedin, Instagram, Github } from 'lucide-react';
+import { TextScramble } from '../ui/text-scramble';
+import { useState } from 'react';
 
 export const Footer = () => {
+	const [isHovered, setIsHovered] = useState(false);
+	const [isTrigger, setIsTrigger] = useState(false);
+
+	const handleMouseEnter = () => {
+		setIsTrigger(true);
+		setIsHovered(true);
+	};
+	const handleMouseLeave = () => {
+		setIsTrigger(true);
+		setIsHovered(false);
+	};
+
 	return (
 		<footer className=" border-t border-neutral-800">
-			<div className="max-w-7xl mx-auto px-4 py-16">
+			<div className="layout-container py-16">
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 					{/* Left Section - Main Content */}
 					<div className="lg:col-span-2">
 						<div className="mb-8">
 							<h2 className="text-3xl font-bold text-white mb-2 font-mono">
-								{'//'} Let's build
+								{'// '}
+								<TextScramble as={'span'}>Let's build</TextScramble>
 							</h2>
 							<h3 className="text-3xl font-bold text-white mb-6 font-mono">
-								Something great
+								<TextScramble as={'span'}>Something great</TextScramble>
 							</h3>
 
 							{/* Hire Me Button */}
-							<Button variant="outline">Hire Me</Button>
+							<Button
+								variant="outline"
+								onMouseEnter={handleMouseEnter}
+								onMouseLeave={handleMouseLeave}
+								className="w-25 cursor-pointer"
+							>
+								<TextScramble
+									as={'span'}
+									duration={0.2}
+									onScrambleComplete={() => setIsTrigger(false)}
+									children={isHovered ? 'Please' : 'Hire Me'}
+									trigger={isTrigger}
+								></TextScramble>
+							</Button>
 
 							{/* Social Media Icons */}
 							<div className="flex space-x-4 mt-8">
@@ -76,7 +105,7 @@ export const Footer = () => {
 				{/* Bottom Border */}
 			</div>
 			<div className="border-t border-neutral-800 pt-8 pb-8">
-				<div className="max-w-7xl mx-auto">
+				<div className="layout-container">
 					<div className="flex flex-col md:flex-row justify-between items-center">
 						<p className="text-neutral-400 text-sm">
 							© 2025 Nandhu. All rights reserved.

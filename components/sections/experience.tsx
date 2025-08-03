@@ -1,3 +1,4 @@
+import { TextScramble } from '../ui/text-scramble';
 import { ExperienceCard } from './experience-card';
 
 export interface Experience {
@@ -38,15 +39,18 @@ const experiences: Experience[] = [
 export const Experience = () => {
 	return (
 		<section className="py-20 px-4">
-			<div className="max-w-7xl mx-auto">
+			<div className="layout-container">
 				<div className=" mb-16">
-					<h2 className="text-4xl font-bold mb-4 text-neutral-50">
-						{'//'} Experience!
+					<h2 className="text-4xl font-bold mb-4">
+						{'// '}
+						<TextScramble as={'span'}>Experience !</TextScramble>
 					</h2>
-					<p className="text-neutral-50 text-sm">
-						A snapshot of my 10-year journey—leading teams, crafting frontends,
-						occasionally wrestling with the backend, and building products that
-						solved real problems.
+					<p className="text-neutral-400 text-lg">
+						<TextScramble as={'span'}>
+							A snapshot of my 10-year journey—leading teams, crafting
+							frontends, occasionally wrestling with the backend, and building
+							products that solved real problems.
+						</TextScramble>
 					</p>
 				</div>
 

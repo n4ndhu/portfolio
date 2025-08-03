@@ -1,4 +1,5 @@
 import { ProjectCard } from './project-card';
+import { TextScramble } from '../ui/text-scramble';
 
 export interface Project {
 	id: string;
@@ -48,10 +49,15 @@ export const Works = () => {
 		<section className="py-20 px-4">
 			<div className="max-w-7xl mx-auto">
 				<div className="mb-16">
-					<h2 className="text-4xl font-bold mb-4">{'//'} Selected Works !</h2>
+					<h2 className="text-4xl font-bold mb-4">
+						{'// '}
+						<TextScramble as={'span'}>Selected Works !</TextScramble>
+					</h2>
 					<p className="text-neutral-400 text-lg">
-						A few things I’ve built (some with my team, some on my own—and all
-						with a lot of love).
+						<TextScramble as={'span'}>
+							A few things I’ve built (some with my team, some on my own—and all
+							with a lot of love).
+						</TextScramble>
 					</p>
 				</div>
 

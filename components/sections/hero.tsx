@@ -1,4 +1,6 @@
 'use client';
+import { arrowDown7x7 } from '../ui/flip-dot-display-frames';
+import { FlipDotDisplayAnimation } from '../ui/flip-dot-display';
 import { TextScramble } from '../ui/text-scramble';
 import { HeroCircle } from './hero-circle';
 import { useState } from 'react';
@@ -53,7 +55,7 @@ export const Hero = () => {
 					</p>
 				</div>
 				<div className="pb-6 ">
-					<div className="layout-container space-x-2">
+					<div className="layout-container space-x-2 relative">
 						{skills.map(skill => {
 							return (
 								<span
@@ -64,6 +66,10 @@ export const Hero = () => {
 								</span>
 							);
 						})}
+
+						<div className="absolute bottom-0 right-0">
+							<FlipDotDisplayAnimation className='size-10' {...arrowDown7x7} minOpacity={0.05} cellClass='rounded-[2px]' />
+						</div>
 					</div>
 					<div className="border-t border-dashed border-neutral-50/25 my-3"></div>
 					<div className="text-sm layout-container leading-none">

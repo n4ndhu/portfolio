@@ -88,7 +88,10 @@ export const Footer = () => {
 
 							{/* Download CV Button */}
 							<Button variant="outline" asChild>
-								<a href="https://drive.google.com/file/d/1VJzHMCajTBfFotxKT-TJ1Vv-kufqn8Nv/view" target="_blank">
+								<a
+									href="https://drive.google.com/file/d/1VJzHMCajTBfFotxKT-TJ1Vv-kufqn8Nv/view"
+									target="_blank"
+								>
 									<svg
 										className="w-4 h-4 mr-2"
 										fill="currentColor"

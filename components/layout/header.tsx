@@ -12,6 +12,7 @@ import {
 import { useMeasure } from 'react-use';
 import { cn } from '@/lib/utils';
 import { FlipDotDisplay, FlipDotDisplayProps } from '../ui/flip-dot-display';
+import { useCursorHover } from '@/components/ui/cursor';
 
 const logoFaces = [
 	// Neutral/Smiling faces
@@ -90,13 +91,16 @@ export const NavLinks = ({
 	icon?: React.ReactNode;
 	className?: string;
 }) => {
+	const pointerHover = useCursorHover('pointer');
+
 	return (
 		<Link
 			href={link}
 			className={cn(
-				'inline-flex bg-neutral-950 border-neutral-50/20 text-neutral-50/90 py-1 px-4 border rounded-full leading-normal text-sm items-center',
+				'inline-flex bg-neutral-950 border-neutral-50/20 text-neutral-50/90 py-1 px-4 border rounded-full leading-normal text-sm items-center cursor-none',
 				className
 			)}
+			{...pointerHover}
 		>
 			{icon ? <span className="mr-2">{icon}</span> : null}
 			<span>{label}</span>
@@ -213,8 +217,9 @@ export const Header = () => {
 				>
 					<Link
 						href="/"
-						className="active:scale-95 origin-left transition-all duration-50 scale-100 transform"
+						className="active:scale-95 origin-left transition-all duration-50 scale-100 transform cursor-none"
 						ref={logoRef}
+						{...useCursorHover('pointer')}
 					>
 						<Logo />
 					</Link>

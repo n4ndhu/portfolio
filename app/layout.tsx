@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Fira_Mono } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/header';
+import { Noise } from '@/components/ui/noise';
 
 const primaryFont = Fira_Mono({
 	weight: ['400', '500', '700'],
@@ -23,6 +24,7 @@ export default function RootLayout({
 			<body
 				className={`${primaryFont.variable} bg-neutral-950 text-neutral-50 font-primary overflow-x-hidden dark`}
 			>
+				<Noise opacity={0.3} speed={0.5} scale={8} lightColor="#d4d4d4" />
 				<Header />
 				{children}
 			</body>

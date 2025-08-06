@@ -11,6 +11,7 @@ import {
 } from 'motion/react';
 import { useMeasure } from 'react-use';
 import { cn } from '@/lib/utils';
+import { FlipDotDisplay, FlipDotDisplayProps } from '../ui/flip-dot-display';
 
 const logoFaces = [
 	// Neutral/Smiling faces
@@ -78,14 +79,85 @@ export const Logo = ({ speed = 150 }: LogoProps) => {
 	);
 };
 
-export const NavLinks = ({ link, label }: { link: string; label: string }) => {
+export const NavLinks = ({
+	link,
+	label,
+	icon,
+	className,
+}: {
+	link: string;
+	label: string;
+	icon?: React.ReactNode;
+	className?: string;
+}) => {
 	return (
 		<Link
 			href={link}
-			className="inline-flex bg-neutral-950 border-neutral-50/20 text-neutral-50/90 py-2 px-4 border rounded-full leading-none text-sm"
+			className={cn(
+				'inline-flex bg-neutral-950 border-neutral-50/20 text-neutral-50/90 py-1 px-4 border rounded-full leading-normal text-sm items-center',
+				className
+			)}
 		>
-			{label}
+			{icon ? <span className="mr-2">{icon}</span> : null}
+			<span>{label}</span>
 		</Link>
+	);
+};
+
+const workIcon: FlipDotDisplayProps['frame'] = [
+	[0, 1, 1, 1, 0],
+	[1, 1, 1, 1, 1],
+	[1, 0, 0, 0, 1],
+	[1, 0, 0, 0, 1],
+	[1, 1, 1, 1, 1],
+];
+
+const WorkIcon = () => {
+	return (
+		<FlipDotDisplay
+			frame={workIcon}
+			className="size-fit"
+			cellClass="size-[2px]"
+			grid={[5, 5]}
+		/>
+	);
+};
+
+const aboutIcon: FlipDotDisplayProps['frame'] = [
+	[0, 1, 0, 1, 0],
+	[1, 0, 1, 0, 1],
+	[1, 0, 0, 0, 1],
+	[0, 1, 0, 1, 0],
+	[0, 0, 1, 0, 0],
+];
+
+const AboutIcon = () => {
+	return (
+		<FlipDotDisplay
+			frame={aboutIcon}
+			className="size-fit"
+			cellClass="size-[2px]"
+			grid={[5, 5]}
+		/>
+	);
+};
+
+const contactsIcon: FlipDotDisplayProps['frame'] = [
+	[0, 1, 1, 1, 0],
+	[1, 1, 0, 1, 1],
+	[1, 0, 1, 0, 1],
+	[1, 1, 0, 1, 1],
+	[0, 1, 1, 1, 0],
+];
+
+const ContactsIcon = () => {
+	return (
+		<FlipDotDisplay
+			frame={contactsIcon}
+			className="size-fit"
+			cellClass="size-[2px]"
+			grid={[5, 5]}
+		/>
 	);
 };
 
@@ -120,12 +192,17 @@ export const Header = () => {
 	});
 
 	return (
-		<section className={cn("fixed inset-x-0 top-6 z-50 transition opacity-0 duration-150", {
-			'opacity-100': containerWidth
-		})} >
+		<section
+			className={cn(
+				'fixed inset-x-0 top-6 z-50 transition opacity-0 duration-150',
+				{
+					'opacity-100': containerWidth,
+				}
+			)}
+		>
 			<div className="layout-container" ref={containerRef}>
 				<motion.header
-					className="flex items-center justify-between pl-6 pr-2 py-2 bg-neutral-900/90 backdrop-blur-lg border border-neutral-50/10 rounded-full"
+					className="flex items-center justify-between pl-4 pr-2 py-2 bg-neutral-900/90 backdrop-blur-lg border border-neutral-50/10 rounded-full"
 					style={{
 						width: navBarWidth,
 					}}
@@ -142,9 +219,24 @@ export const Header = () => {
 						<Logo />
 					</Link>
 					<div className="flex space-x-2" ref={navLinksRef}>
-						<NavLinks label="Work" link="/#works" />
-						<NavLinks label="About" link="/" />
-						<NavLinks label="Contacts" link="/#contacts" />
+						<NavLinks
+							label="Work"
+							link="/#works"
+							icon={<WorkIcon />}
+							className="pl-3"
+						/>
+						<NavLinks
+							label="About"
+							link="/"
+							icon={<AboutIcon />}
+							className="pl-3"
+						/>
+						<NavLinks
+							label="Contacts"
+							link="/#contacts"
+							icon={<ContactsIcon />}
+							className="pl-3"
+						/>
 					</div>
 				</motion.header>
 			</div>

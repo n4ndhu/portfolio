@@ -87,16 +87,18 @@ export const Footer = () => {
 							<p className="text-white font-mono mb-6">n4ndhu@gmail.com</p>
 
 							{/* Download CV Button */}
-							<Button variant="outline">
-								<svg
-									className="w-4 h-4 mr-2"
-									fill="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path d="M12 16l-5-5h3V4h4v7h3l-5 5z" />
-									<path d="M20 18H4v-2h16v2z" />
-								</svg>
-								Download CV
+							<Button variant="outline" asChild>
+								<a href="https://drive.google.com/file/d/1VJzHMCajTBfFotxKT-TJ1Vv-kufqn8Nv/view" target="_blank">
+									<svg
+										className="w-4 h-4 mr-2"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path d="M12 16l-5-5h3V4h4v7h3l-5 5z" />
+										<path d="M20 18H4v-2h16v2z" />
+									</svg>
+									Download CV
+								</a>
 							</Button>
 						</div>
 					</div>

@@ -34,6 +34,14 @@ const experiences: Experience[] = [
 		description:
 			'Worked on a POS system with hardware integration and restaurant tools. Built features across the stack to keep things simple and smooth for people actually running the restaurants.',
 	},
+	{
+		id: 'cumulus',
+		dates: 'Jun 2015 - Nov 2017',
+		title: 'Software Engineer',
+		company: 'Cumulus Softwares Pvt Ltd',
+		description:
+			'Built ERP and CRM frontends. Delivered websites for clients like D-Link, Ticket Magic, Hilti, and Pingsecure.',
+	},
 ];
 
 export const Experience = () => {

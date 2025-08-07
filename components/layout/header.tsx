@@ -196,22 +196,22 @@ export const Header = () => {
 	});
 
 	return (
-		<section
-			className={cn(
-				'fixed inset-x-0 top-6 z-50 transition opacity-0 duration-150',
-				{
-					'opacity-100': containerWidth,
-				}
-			)}
-		>
+		<section className={cn('fixed inset-x-0 top-6 z-50 ')}>
 			<div className="layout-container" ref={containerRef}>
 				<motion.header
 					className="flex items-center justify-between pl-4 pr-2 py-2 bg-neutral-900/90 backdrop-blur-lg border border-neutral-50/10 rounded-full"
+					initial={{
+						width: '100%',
+						opacity: 0,
+					}}
+					animate={{
+						opacity: 1,
+					}}
 					style={{
 						width: navBarWidth,
 					}}
 					transition={{
-						duration: 0.5,
+						duration: 0.3,
 						ease: 'easeInOut',
 					}}
 				>

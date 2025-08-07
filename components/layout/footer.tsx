@@ -18,7 +18,7 @@ export const Footer = () => {
 	};
 
 	return (
-		<footer className=" border-t border-neutral-800">
+		<footer className=" border-t border-neutral-800" id="contacts">
 			<div className="layout-container py-16">
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 					{/* Left Section - Main Content */}

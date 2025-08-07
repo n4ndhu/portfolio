@@ -117,8 +117,14 @@
 	* {
 		@apply border-border outline-ring/50;
 	}
+	html {
+		scroll-behavior: smooth;
+	}
 	body {
 		@apply bg-background text-foreground;
+		/* Ensure vertical scrolling is enabled */
+		overflow-y: auto;
+		overflow-x: hidden;
 	}
 
 	.layout-container {

@@ -11,7 +11,10 @@ import {
 } from 'motion/react';
 import { useMeasure } from 'react-use';
 import { cn } from '@/lib/utils';
-import { FlipDotDisplay, FlipDotDisplayProps } from '../ui/flip-dot-display';
+import {
+	FlipDotDisplay,
+	FlipDotDisplayProps,
+} from '@/components/ui/flip-dot-display';
 import { useCursorHover } from '@/components/ui/cursor';
 
 const logoFaces = [
@@ -232,7 +235,7 @@ export const Header = () => {
 						/>
 						<NavLinks
 							label="About"
-							link="/"
+							link="/about"
 							icon={<AboutIcon />}
 							className="pl-3"
 						/>

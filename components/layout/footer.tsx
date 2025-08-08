@@ -1,7 +1,7 @@
 'use client';
-import { Button } from '@/components/ui/button';
 import { Linkedin, Instagram, Github } from 'lucide-react';
-import { TextScramble } from '../ui/text-scramble';
+import { TextScramble } from '@/components/ui/text-scramble';
+import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
 export const Footer = () => {

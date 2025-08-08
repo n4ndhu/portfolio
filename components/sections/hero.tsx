@@ -1,7 +1,7 @@
 'use client';
-import { arrowDown7x7 } from '../ui/flip-dot-display-frames';
-import { FlipDotDisplayAnimation } from '../ui/flip-dot-display';
-import { TextScramble } from '../ui/text-scramble';
+import { arrowDown7x7 } from '@/components/ui/flip-dot-display-frames';
+import { FlipDotDisplayAnimation } from '@/components/ui/flip-dot-display';
+import { TextScramble } from '@/components/ui/text-scramble';
 import { HeroCircle } from './hero-circle';
 import { motion } from 'motion/react';
 

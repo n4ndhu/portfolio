@@ -1,5 +1,5 @@
 import { ProjectCard } from './project-card';
-import { TextScramble } from '../ui/text-scramble';
+import { TextScramble } from '@/components/ui/text-scramble';
 
 export interface Project {
 	id: string;

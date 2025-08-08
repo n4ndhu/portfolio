@@ -1,4 +1,4 @@
-import { TextScramble } from '../ui/text-scramble';
+import { TextScramble } from '@/components/ui/text-scramble';
 import { ExperienceCard } from './experience-card';
 
 export interface Experience {

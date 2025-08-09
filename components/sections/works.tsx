@@ -126,10 +126,11 @@ export const Works = () => {
 				</div>
 
 				<div className="flex items-center flex-wrap space-x-8">
-					{moreProjects.map(project => (
+					{moreProjects.map((project, index) => (
 						<Image
 							src={project.logoUrl}
 							alt={project.title}
+							key={index}
 							className="h-5 min-w-fit w-fit max-w-fit grayscale-100 hover:grayscale-0 transition-all duration-300"
 						/>
 					))}

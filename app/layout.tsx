@@ -6,6 +6,7 @@ import { Noise } from '@/components/ui/noise';
 import { CursorProvider, Cursor } from '@/components/ui/cursor';
 import ScrollToHash from '@/components/ui/scroll-to-hash';
 import { Footer } from '@/components/layout/footer';
+import { Intro } from '@/components/ui/intro';
 
 const primaryFont = Fira_Mono({
 	weight: ['400', '500', '700'],
@@ -35,6 +36,7 @@ export default function RootLayout({
 					<Cursor />
 					<ScrollToHash />
 				</CursorProvider>
+				<Intro />
 				{/* <div className="fixed left-0 top-0 bottom-0 z-50 mix-blend-difference bg-white w-1/2"></div> */}
 			</body>
 		</html>

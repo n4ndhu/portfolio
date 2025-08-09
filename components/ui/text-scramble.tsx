@@ -1,5 +1,5 @@
 'use client';
-import { type JSX, useEffect, useState } from 'react';
+import { type JSX, useEffect, useRef, useState } from 'react';
 import { motion, MotionProps } from 'motion/react';
 
 export type TextScrambleProps = {
@@ -31,28 +31,35 @@ export function TextScramble({
 		Component as keyof JSX.IntrinsicElements
 	);
 	const [displayText, setDisplayText] = useState(children);
-	const [isAnimating, setIsAnimating] = useState(false);
-	const text = children;
+	const intervalRef = useRef<NodeJS.Timeout | null>(null);
+	const hasRun = useRef(false);
 
-	const scramble = async () => {
-		if (isAnimating) return;
-		setIsAnimating(true);
+	useEffect(() => {
+		// Clear any existing interval
+		if (intervalRef.current) {
+			clearInterval(intervalRef.current);
+			intervalRef.current = null;
+		}
 
-		const steps = duration / speed;
+		// Only run if trigger is true and hasn't run before
+		if (!trigger || hasRun.current) return;
+
+		hasRun.current = true;
+		const steps = Math.floor(duration / speed);
 		let step = 0;
 
-		const interval = setInterval(() => {
+		intervalRef.current = setInterval(() => {
 			let scrambled = '';
 			const progress = step / steps;
 
-			for (let i = 0; i < text.length; i++) {
-				if (text[i] === ' ') {
+			for (let i = 0; i < children.length; i++) {
+				if (children[i] === ' ') {
 					scrambled += ' ';
 					continue;
 				}
 
-				if (progress * text.length > i) {
-					scrambled += text[i];
+				if (progress * children.length > i) {
+					scrambled += children[i];
 				} else {
 					scrambled +=
 						characterSet[Math.floor(Math.random() * characterSet.length)];
@@ -63,19 +70,29 @@ export function TextScramble({
 			step++;
 
 			if (step > steps) {
-				clearInterval(interval);
-				setDisplayText(text);
-				setIsAnimating(false);
+				if (intervalRef.current) {
+					clearInterval(intervalRef.current);
+					intervalRef.current = null;
+				}
+				setDisplayText(children);
 				onScrambleComplete?.();
 			}
 		}, speed * 1000);
-	};
 
+		// Cleanup function
+		return () => {
+			if (intervalRef.current) {
+				clearInterval(intervalRef.current);
+				intervalRef.current = null;
+			}
+		};
+	}, []); // Empty dependency array - only run once on mount
+
+	// Reset when children or trigger changes
 	useEffect(() => {
-		if (!trigger) return;
-
-		scramble();
-	}, [trigger, scramble]);
+		hasRun.current = false;
+		setDisplayText(children);
+	}, [children, trigger]);
 
 	return (
 		<MotionComponent className={className} {...props}>

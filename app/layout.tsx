@@ -14,8 +14,8 @@ const primaryFont = Fira_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'n4ndhu',
-	description: 'Personal portfolio of Nandhu',
+	title: 'N4ndhu - Web Developer',
+	description: `I’m a web developer who loves creating clean, user-friendly websites that work well, look good, and make life easier.`,
 };
 
 export default function RootLayout({

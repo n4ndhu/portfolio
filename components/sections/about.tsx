@@ -5,6 +5,7 @@ import { AboutArrowD, AboutDotPathD, ASCII_ART } from './about-hero-values';
 import { TextScramble } from '@/components/ui/text-scramble';
 import { TextReveal } from '@/components/ui/text-reveal';
 import { StackedCarousel } from '@/components/ui/stacked-carousel';
+import { motion } from 'motion/react';
 
 import Image1 from '@/public/img/click-1.jpeg';
 import Image2 from '@/public/img/click-2.jpeg';
@@ -103,29 +104,52 @@ const aboutImages = [
 
 export const AsciiProfilePic = () => {
 	return (
-		<div className="size-fit overflow-hidden text-[7px] select-none leading-none text-black bg-neutral-50/10 text-right">
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 0.5 }}
+			className="size-fit overflow-hidden sm:text-[7px] text-[3px] select-none leading-none text-black bg-neutral-50/10 text-right"
+		>
 			<pre>{ASCII_ART}</pre>
-		</div>
+		</motion.div>
 	);
 };
 
 export const AboutDotPattern = () => {
 	return (
 		<div className="absolute w-[40%] right-0 top-0">
-			<svg
+			<motion.svg
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 0.5, delay: 0.25 }}
 				className="size-full"
 				viewBox="0 0 305 305"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<path d={AboutDotPathD} fill="#FAFAFA" fillOpacity=".3" />
-			</svg>
+			</motion.svg>
 
-			<div className="aspect-square w-1/2 bg-neutral-50/10 top-full right-full absolute">
-				<div className="aspect-square w-full bg-neutral-50/5 top-[110%] right-[110%] absolute">
-					<div className="h-[30%] w-[300%] bg-neutral-50/10 -top-[20%] left-1/2 absolute"></div>
-				</div>
-			</div>
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 0.5, delay: 0.5 }}
+				className="aspect-square w-1/2 bg-neutral-50/10 top-full right-full absolute"
+			>
+				<motion.div
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ duration: 0.5, delay: 0.75 }}
+					className="aspect-square w-full bg-neutral-50/5 top-[110%] right-[110%] absolute"
+				>
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ duration: 0.5, delay: 1 }}
+						className="h-[30%] w-[300%] bg-neutral-50/10 -top-[20%] left-1/2 absolute"
+					></motion.div>
+				</motion.div>
+			</motion.div>
 		</div>
 	);
 };
@@ -149,34 +173,41 @@ export const About = () => {
 	return (
 		<>
 			<div className="relative isolate">
-				<div>
+				<div className="hidden sm:block">
 					<HeroCircle
 						className="absolute w-[60%] -top-[30%] -right-[20%]"
 						direction="clockwise"
 						speed={60}
 					/>
 				</div>
-				<section className="pt-28  layout-container">
-					<div className="grid grid-cols-2 relative items-center">
-						<div className="flex justify-end">
+				<section className="pt-28 layout-container">
+					<div className="grid sm:grid-cols-2 grid-cols-1 relative items-center">
+						<div className="flex sm:justify-end">
 							<AsciiProfilePic />
 						</div>
 						<div className="relative h-full flex flex-col justify-center">
 							<AboutDotPattern />
 							<div className="absolute text-5xl bottom-0 right-0 text-neutral-50/30 font-medium">
-								//
+								<motion.span
+									animate={{ opacity: [0.4, 1, 0.7, 1] }}
+									transition={{ duration: 20, delay: 0.25, repeat: Infinity }}
+								>
+									/
+								</motion.span>
+								<span>/</span>
 							</div>
-							<h1 className="text-5xl font-medium transform -translate-x-8 text-neutral-50/90 relative inline-flex w-fit">
+							<h1 className="text-5xl font-medium transform sm:-translate-x-8 translate-x-3 text-neutral-50/90 relative inline-flex w-fit">
 								<TextScramble>ABOUT ME</TextScramble>
 								<AboutArrow />
 							</h1>
+							<div className="aspect-square sm:hidden"></div>
 						</div>
 					</div>
 				</section>
 			</div>
 			<div className="layout-container">
-				<div className="py-32 grid grid-cols-3 gap-10 relative">
-					<div className="text-3xl  mx-auto font-medium col-span-2">
+				<div className="py-10 sm:py-32 grid sm:grid-cols-3 grid-cols-1 sm:gap-10 gap-4 relative">
+					<div className="sm:text-3xl text-xl  mx-auto font-medium sm:col-span-2 col-span-1">
 						<TextReveal>
 							Hey, I'm Nandhu a web developer with 10 years of experience
 							building websites, writing code, and occasionally breaking things
@@ -204,11 +235,11 @@ export const About = () => {
 						</TextReveal>
 						<TextReveal className="rotate-90 inline-flex w-fit">:)</TextReveal>
 					</div>
-					<div className="pt-20">
-						<div className=" sticky top-30">
+					<div className="pt-10 sm:pt-20 pb-10 sm:pb-0">
+						<div className="sm:sticky sm:top-30 ">
 							<StackedCarousel
 								images={aboutImages}
-								className="w-full max-w-56"
+								className="w-full max-w-56 mx-auto sm:mx-0"
 								maxRotation={6}
 							/>
 						</div>

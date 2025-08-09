@@ -6,24 +6,24 @@ import { TextScramble } from '@/components/ui/text-scramble';
 import { TextReveal } from '@/components/ui/text-reveal';
 import { StackedCarousel } from '@/components/ui/stacked-carousel';
 
-import Image1 from '../../public/img/click-1.jpeg';
-import Image2 from '../../public/img/click-2.jpeg';
-import Image3 from '../../public/img/click-3.jpeg';
-import Image4 from '../../public/img/click-4.jpeg';
-import Image5 from '../../public/img/click-5.jpeg';
-import Image6 from '../../public/img/click-6.jpeg';
-import Image7 from '../../public/img/click-7.jpeg';
-import Image8 from '../../public/img/click-8.jpeg';
-import Image9 from '../../public/img/click-9.jpeg';
-import Image10 from '../../public/img/click-10.jpeg';
-import Image11 from '../../public/img/click-11.jpeg';
-import Image12 from '../../public/img/click-12.jpeg';
-import Image13 from '../../public/img/click-13.jpeg';
-import Image14 from '../../public/img/click-14.jpeg';
-import Image15 from '../../public/img/click-15.jpeg';
-import Image16 from '../../public/img/click-16.jpeg';
-import Image17 from '../../public/img/click-17.jpeg';
-import Image18 from '../../public/img/click-18.jpeg';
+import Image1 from '@/public/img/click-1.jpeg';
+import Image2 from '@/public/img/click-2.jpeg';
+import Image3 from '@/public/img/click-3.jpeg';
+import Image4 from '@/public/img/click-4.jpeg';
+import Image5 from '@/public/img/click-5.jpeg';
+import Image6 from '@/public/img/click-6.jpeg';
+import Image7 from '@/public/img/click-7.jpeg';
+import Image8 from '@/public/img/click-8.jpeg';
+import Image9 from '@/public/img/click-9.jpeg';
+import Image10 from '@/public/img/click-10.jpeg';
+import Image11 from '@/public/img/click-11.jpeg';
+import Image12 from '@/public/img/click-12.jpeg';
+import Image13 from '@/public/img/click-13.jpeg';
+import Image14 from '@/public/img/click-14.jpeg';
+import Image15 from '@/public/img/click-15.jpeg';
+import Image16 from '@/public/img/click-16.jpeg';
+import Image17 from '@/public/img/click-17.jpeg';
+import Image18 from '@/public/img/click-18.jpeg';
 
 const aboutImages = [
 	{
@@ -199,18 +199,16 @@ export const About = () => {
 							challenge—or just the next cool thing to learn.
 						</TextReveal>
 						<TextReveal>
-							I've worked on some pretty interesting projects over the years and
-							had the chance to mentor aspiring developers along the way. I take
-							pride in what I build and am always looking for the next
-							challenge—or just the next cool thing to learn.
+							Staying updated with the ever-changing web world isn’t easy, but I
+							try to keep up (and sometimes even ahead). Thanks for dropping by.
 						</TextReveal>
+						<TextReveal className="rotate-90 inline-flex w-fit">:)</TextReveal>
 					</div>
 					<div className="pt-20">
 						<div className=" sticky top-30">
 							<StackedCarousel
 								images={aboutImages}
 								className="w-full max-w-56"
-								threshold={120}
 								maxRotation={6}
 							/>
 						</div>

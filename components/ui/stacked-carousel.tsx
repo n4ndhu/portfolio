@@ -13,8 +13,6 @@ interface StackedCarouselProps {
 	}[];
 	/** Additional CSS classes to apply to the container */
 	className?: string;
-	/** Drag distance required to trigger navigation (in pixels) */
-	threshold?: number;
 	/** Maximum rotation angle for images (in degrees) */
 	maxRotation?: number;
 }
@@ -22,7 +20,6 @@ interface StackedCarouselProps {
 export function StackedCarouselClient({
 	images,
 	className,
-	threshold = 120,
 	maxRotation = 6,
 }: StackedCarouselProps) {
 	// Store rotation with each image - use fixed rotations
@@ -99,7 +96,6 @@ export function StackedCarouselClient({
 export function StackedCarousel({
 	images,
 	className,
-	threshold = 120,
 	maxRotation = 6,
 }: StackedCarouselProps) {
 	const [isClient, setIsClient] = useState(false);
@@ -113,7 +109,6 @@ export function StackedCarousel({
 		<StackedCarouselClient
 			images={images}
 			className={className}
-			threshold={threshold}
 			maxRotation={maxRotation}
 		/>
 	);

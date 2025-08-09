@@ -9,6 +9,7 @@ import { FuzzyText } from '@/components/ui/fuzzy-text';
 const primaryFont = Fira_Mono({
 	weight: ['400', '500', '700'],
 	variable: '--font-primary',
+	subsets: ['latin'],
 });
 
 export const metadata: Metadata = {

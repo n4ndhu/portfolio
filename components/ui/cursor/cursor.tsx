@@ -9,8 +9,6 @@ import { cn } from '@/lib/utils';
 export function Cursor() {
 	const { state } = useCursor();
 
-	if (!state.isVisible) return null;
-
 	useEffect(() => {
 		document.body.style.cursor = 'none';
 		return () => {
@@ -67,6 +65,8 @@ export function Cursor() {
 
 		return baseStyle;
 	}, [styleChecks, currentStyle.size, state.textHeight]);
+
+	if (!state.isVisible) return null;
 
 	return (
 		<motion.div

@@ -63,7 +63,7 @@ export const Footer = () => {
 		setIsHovered(false);
 	};
 
-	let currentYear = new Date().getFullYear();
+	const currentYear = new Date().getFullYear();
 
 	return (
 		<footer className="border-t border-dashed border-neutral-800" id="contacts">
@@ -78,11 +78,11 @@ export const Footer = () => {
 								onMouseLeave={handleMouseLeave}
 							>
 								<div>
-									<h2 className="sm:text-3xl text-lg font-bold text-white mb-2 font-mono">
+									<h2 className="sm:text-3xl text-lg font-bold text-white mb-2">
 										{'// '}
-										<TextScramble as={'span'}>Let's build</TextScramble>
+										<TextScramble as={'span'}>Let&apos;s build</TextScramble>
 									</h2>
-									<h3 className="sm:text-3xl text-lg font-bold text-white font-mono">
+									<h3 className="sm:text-3xl text-lg font-bold text-white">
 										<TextScramble as={'span'}>Something great</TextScramble>
 									</h3>
 								</div>

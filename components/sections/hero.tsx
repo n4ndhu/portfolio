@@ -45,7 +45,7 @@ export const Hero = () => {
 					>
 						<div {...useTextHover}>
 							{'// '}
-							<TextScramble as={'span'}>Hi.! I'm Nandhu </TextScramble>
+							<TextScramble as={'span'}>Hi.! I&apos;m Nandhu </TextScramble>
 						</div>
 					</motion.h1>
 					<motion.p

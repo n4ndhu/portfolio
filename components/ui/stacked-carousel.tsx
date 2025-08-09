@@ -38,7 +38,7 @@ export function StackedCarouselClient({
 		setZIndexOfImages(
 			imagesWithRotation.map((_, index) => images.length - index)
 		);
-	}, [imagesWithRotation]);
+	}, [imagesWithRotation, images.length]);
 
 	const bringTopLayerToBack = () => {
 		setZIndexOfImages(prev => {

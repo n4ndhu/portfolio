@@ -259,6 +259,7 @@ export const FlipDotDisplayAnimation = ({
 	}, [
 		isPlaying,
 		intersection?.intersectionRatio,
+		intersection,
 		frames.length,
 		fps,
 		repeat,

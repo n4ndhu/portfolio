@@ -235,7 +235,7 @@ export const Header = () => {
 
 	useEffect(() => {
 		navBarWidth.set(containerWidth);
-	}, [containerWidth]);
+	}, [containerWidth, navBarWidth]);
 
 	useMotionValueEvent(scrollY, 'change', latest => {
 		const minWidth = logoWidth + navLinksWidth + 40;

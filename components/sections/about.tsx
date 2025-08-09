@@ -209,25 +209,25 @@ export const About = () => {
 				<div className="py-10 sm:py-32 grid sm:grid-cols-3 grid-cols-1 sm:gap-10 gap-4 relative">
 					<div className="sm:text-3xl text-xl  mx-auto font-medium sm:col-span-2 col-span-1">
 						<TextReveal>
-							Hey, I'm Nandhu a web developer with 10 years of experience
+							Hey, I&apos;m Nandhu a web developer with 10 years of experience
 							building websites, writing code, and occasionally breaking things
 							(on purpose, for learning). I love clean frontends, meaningful
 							interactions, and yes, I unapologetically prefer dark mode. White
-							mode? Let's not go there. Maybe I'm part vampire.
+							mode? Let&apos;s not go there. Maybe I&apos;m part vampire.
 						</TextReveal>
 
 						<TextReveal>
 							I was born in Kerala, India, and currently live in Bangalore with
-							my wife and mother. When I'm not coding, I'm probably somewhere in
-							the mountains or scrolling through the photos I took on my
-							phone—none of which are award-winning, but a few made it onto this
-							page just for fun. No hidden meanings, just vibes.
+							my wife and mother. When I&apos;m not coding, I&apos;m probably
+							somewhere in the mountains or scrolling through the photos I took
+							on my phone—none of which are award-winning, but a few made it
+							onto this page just for fun. No hidden meanings, just vibes.
 						</TextReveal>
 						<TextReveal>
-							I've worked on some pretty interesting projects over the years and
-							had the chance to mentor aspiring developers along the way. I take
-							pride in what I build and am always looking for the next
-							challenge—or just the next cool thing to learn.
+							I&apos;ve worked on some pretty interesting projects over the
+							years and had the chance to mentor aspiring developers along the
+							way. I take pride in what I build and am always looking for the
+							next challenge—or just the next cool thing to learn.
 						</TextReveal>
 						<TextReveal>
 							Staying updated with the ever-changing web world isn’t easy, but I

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useCallback, useEffect } from 'react';
 import {
+	AnimatePresence,
 	motion,
 	useAnimationFrame,
 	useMotionValue,
@@ -100,7 +101,7 @@ export const NavLinks = ({
 		<Link
 			href={link}
 			className={cn(
-				'inline-flex bg-neutral-950 border-neutral-50/20 text-neutral-50/90 py-1 px-4 border rounded-full leading-normal text-sm items-center cursor-none',
+				'inline-flex bg-neutral-950 border-neutral-50/20 text-neutral-50/90 py-2 sm:py-1 px-4  border rounded-full leading-normal text-sm items-center cursor-none',
 				className
 			)}
 			{...pointerHover}
@@ -168,6 +169,56 @@ const ContactsIcon = () => {
 	);
 };
 
+const menuIconOpen: FlipDotDisplayProps['frame'] = [
+	[1, 1, 1, 1, 1],
+	[0, 0, 0, 0, 0],
+	[1, 1, 1, 1, 1],
+	[0, 0, 0, 0, 0],
+	[1, 1, 1, 1, 1],
+];
+const menuIconClose: FlipDotDisplayProps['frame'] = [
+	[1, 0, 0, 0, 1],
+	[0, 1, 0, 1, 0],
+	[0, 0, 1, 0, 0],
+	[0, 1, 0, 1, 0],
+	[1, 0, 0, 0, 1],
+];
+
+const MenuIcon = ({ isOpen = false }: { isOpen?: boolean }) => {
+	return (
+		<FlipDotDisplay
+			frame={isOpen ? menuIconClose : menuIconOpen}
+			className="size-fit"
+			cellClass="size-[2px]"
+			grid={[5, 5]}
+		/>
+	);
+};
+
+const NavLinksArray = [
+	<NavLinks
+		key="work"
+		label="Work"
+		link="/#works"
+		icon={<WorkIcon />}
+		className="pl-3"
+	/>,
+	<NavLinks
+		key="about"
+		label="About"
+		link="/about"
+		icon={<AboutIcon />}
+		className="pl-3"
+	/>,
+	<NavLinks
+		key="contacts"
+		label="Contacts"
+		link="/#contacts"
+		icon={<ContactsIcon />}
+		className="pl-3"
+	/>,
+];
+
 export const Header = () => {
 	const [logoRef, { width: logoWidth }] = useMeasure<HTMLAnchorElement>();
 	const [navLinksRef, { width: navLinksWidth }] = useMeasure<HTMLDivElement>();
@@ -177,6 +228,10 @@ export const Header = () => {
 	const { scrollY } = useScroll();
 
 	const navBarWidth = useMotionValue(containerWidth);
+
+	const usePointerHover = useCursorHover('pointer');
+
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	useEffect(() => {
 		navBarWidth.set(containerWidth);
@@ -199,10 +254,10 @@ export const Header = () => {
 	});
 
 	return (
-		<section className={cn('fixed inset-x-0 top-6 z-50 ')}>
+		<section className={cn('fixed inset-x-0 top-6 z-50 w-dvw')}>
 			<div className="layout-container" ref={containerRef}>
 				<motion.header
-					className="flex items-center justify-between pl-4 pr-2 py-2 bg-neutral-900/90 backdrop-blur-lg border border-neutral-50/10 rounded-full"
+					className="flex items-center justify-between pl-4 pr-2 py-2 bg-neutral-900/90 backdrop-blur-lg border border-neutral-50/10 rounded-full max-w-full"
 					initial={{
 						width: '100%',
 						opacity: 0,
@@ -226,27 +281,48 @@ export const Header = () => {
 					>
 						<Logo />
 					</Link>
-					<div className="flex space-x-2" ref={navLinksRef}>
-						<NavLinks
-							label="Work"
-							link="/#works"
-							icon={<WorkIcon />}
-							className="pl-3"
-						/>
-						<NavLinks
-							label="About"
-							link="/about"
-							icon={<AboutIcon />}
-							className="pl-3"
-						/>
-						<NavLinks
-							label="Contacts"
-							link="/#contacts"
-							icon={<ContactsIcon />}
-							className="pl-3"
-						/>
+
+					<div ref={navLinksRef}>
+						<div className="sm:hidden flex items-center pr-1.5">
+							<button
+								{...usePointerHover}
+								className="p-1 rounded-full"
+								onClick={() => setIsMenuOpen(!isMenuOpen)}
+							>
+								<MenuIcon isOpen={isMenuOpen} />
+							</button>
+						</div>
+						<div className="sm:flex space-x-2 hidden">
+							{NavLinksArray.map(link => link)}
+						</div>
 					</div>
 				</motion.header>
+				<AnimatePresence initial={false}>
+					{isMenuOpen ? (
+						<motion.div
+							initial={{
+								scaleY: 0,
+							}}
+							exit={{
+								scaleY: 0,
+							}}
+							animate={{
+								scaleY: 1,
+							}}
+							className="mt-4 px-3 py-4 bg-neutral-900/90 backdrop-blur-lg border border-neutral-50/10 rounded-3xl origin-top flex flex-col space-y-2"
+						>
+							{NavLinksArray.map(link => (
+								<div
+									key={link.key}
+									className="flex flex-col"
+									onClick={() => setIsMenuOpen(false)}
+								>
+									{link}
+								</div>
+							))}
+						</motion.div>
+					) : null}
+				</AnimatePresence>
 			</div>
 		</section>
 	);

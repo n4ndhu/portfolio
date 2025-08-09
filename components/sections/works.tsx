@@ -1,3 +1,4 @@
+'use client';
 import { Project, ProjectCard } from './project-card';
 import { TextScramble } from '@/components/ui/text-scramble';
 import Image, { StaticImageData } from 'next/image';
@@ -16,6 +17,7 @@ import BankConnectLogo from '@/public/logos/bank-connect.png';
 import BlueSkyLogo from '@/public/logos/bluesky.png';
 import DLinkLogo from '@/public/logos/dlink.png';
 import SubdineLogo from '@/public/logos/subdine.png';
+import { motion } from 'motion/react';
 
 const projects: Project[] = [
 	{
@@ -100,14 +102,14 @@ const moreProjects: {
 
 export const Works = () => {
 	return (
-		<section className="pt-26 pb-20 px-4" id="works">
+		<section className="pt-26 pb-5 sm:pb-20 " id="works">
 			<div className="layout-container">
-				<div className="mb-16">
-					<h2 className="text-4xl font-bold mb-4">
+				<div className="mb-8 sm:mb-16">
+					<h2 className="sm:text-4xl text-2xl font-bold mb-4">
 						{'// '}
 						<TextScramble as={'span'}>Selected Works !</TextScramble>
 					</h2>
-					<p className="text-neutral-400 text-lg">
+					<p className="text-neutral-400 sm:text-lg text-sm">
 						<TextScramble as={'span'}>
 							A few things I’ve built (some with my team, some on my own—and all
 							with a lot of love).
@@ -115,7 +117,7 @@ export const Works = () => {
 					</p>
 				</div>
 
-				<div className="grid grid-cols-1 gap-px max-w-6xl">
+				<div className="grid grid-cols-1 sm:gap-px gap-2 max-w-6xl">
 					{projects.map(project => (
 						<ProjectCard key={project.id} project={project} />
 					))}
@@ -127,12 +129,20 @@ export const Works = () => {
 
 				<div className="flex items-center flex-wrap space-x-8">
 					{moreProjects.map((project, index) => (
-						<Image
-							src={project.logoUrl}
-							alt={project.title}
+						<motion.div
 							key={index}
-							className="h-5 min-w-fit w-fit max-w-fit grayscale-100 hover:grayscale-0 transition-all duration-300"
-						/>
+							initial={{ opacity: 0 }}
+							whileInView={{ opacity: 1 }}
+							transition={{ duration: 0.5, delay: index * 0.1 }}
+							className="inline-flex w-fit"
+						>
+							<Image
+								src={project.logoUrl}
+								alt={project.title}
+								key={index}
+								className="sm:h-5 h-3 min-w-fit w-fit max-w-fit mb-4 sm:mb-0 sm:grayscale-100 hover:grayscale-0 transition-all duration-300"
+							/>
+						</motion.div>
 					))}
 				</div>
 			</div>

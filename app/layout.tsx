@@ -26,7 +26,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${primaryFont.variable} bg-neutral-950 text-neutral-50 font-primary overflow-x-hidden dark`}
+				className={`${primaryFont.variable} bg-neutral-950 text-neutral-50 font-primary overflow-x-hidden dark max-w-dvw`}
 			>
 				<CursorProvider>
 					<Noise opacity={0.3} speed={0.5} scale={8} lightColor="#d4d4d4" />
@@ -37,7 +37,6 @@ export default function RootLayout({
 					<ScrollToHash />
 				</CursorProvider>
 				<Intro />
-				{/* <div className="fixed left-0 top-0 bottom-0 z-50 mix-blend-difference bg-white w-1/2"></div> */}
 			</body>
 		</html>
 	);

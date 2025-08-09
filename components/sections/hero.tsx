@@ -4,6 +4,7 @@ import { FlipDotDisplayAnimation } from '@/components/ui/flip-dot-display';
 import { TextScramble } from '@/components/ui/text-scramble';
 import { HeroCircle } from './hero-circle';
 import { motion } from 'motion/react';
+import { useCursorHover } from '@/components/ui/cursor';
 
 export const Hero = () => {
 	const skills = [
@@ -13,10 +14,12 @@ export const Hero = () => {
 		'Performance Optimization',
 	];
 
+	const useTextHover = useCursorHover('text');
+
 	return (
 		<>
 			<div className="relative isolate overflow-visible min-h-dvh flex flex-col">
-				<div>
+				<div className="hidden sm:block">
 					<HeroCircle
 						className="absolute w-[50%] top-[30%] -left-[20%]"
 						direction="clockwise"
@@ -31,7 +34,7 @@ export const Hero = () => {
 
 				<div className="layout-container my-auto flex flex-col justify-center w-full ">
 					<motion.h1
-						className="text-4xl font-bold mb-6"
+						className="sm:text-4xl text-2xl font-bold mb-6"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{
@@ -40,11 +43,13 @@ export const Hero = () => {
 							ease: 'easeOut',
 						}}
 					>
-						{'// '}
-						<TextScramble as={'span'}>Hi.! I'm Nandhu </TextScramble>
+						<div {...useTextHover}>
+							{'// '}
+							<TextScramble as={'span'}>Hi.! I'm Nandhu </TextScramble>
+						</div>
 					</motion.h1>
 					<motion.p
-						className="text-xl"
+						className="sm:text-xl text-base"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{
@@ -53,16 +58,18 @@ export const Hero = () => {
 							ease: 'easeOut',
 						}}
 					>
-						<span className="block">
-							<TextScramble as={'span'} duration={3}>
+						<span className="block mb-3 sm:mb-0" {...useTextHover}>
+							<TextScramble as={'span'} duration={1}>
 								I’ve been building websites for 10 years, mostly focusing on the
 								frontend where things take shape.
 							</TextScramble>
 						</span>
-						<TextScramble as={'span'} duration={3}>
-							I enjoy creating clean, usable interfaces that feel natural to
-							interact with.
-						</TextScramble>
+						<span {...useTextHover}>
+							<TextScramble as={'span'} duration={1}>
+								I enjoy creating clean, usable interfaces that feel natural to
+								interact with.
+							</TextScramble>
+						</span>
 					</motion.p>
 				</div>
 				<div className="pb-6 ">
@@ -70,10 +77,11 @@ export const Hero = () => {
 						{skills.map((skill, index) => {
 							return (
 								<motion.span
-									className="inline-flex px-4 py-1 rounded-full border border-neutral-50/50 text-sm"
+									className="inline-flex px-2 py-0.5 rounded-xs border border-neutral-50/20 text-xs sm:text-sm mt-2 sm:mt-0"
 									key={skill}
 									initial={{ opacity: 0, scale: 0.8 }}
 									animate={{ opacity: 1, scale: 1 }}
+									{...useTextHover}
 									transition={{
 										duration: 0.5,
 										delay: index * 0.1,
@@ -86,7 +94,7 @@ export const Hero = () => {
 						})}
 
 						<motion.div
-							className="absolute bottom-0 right-0"
+							className="absolute bottom-0 sm:right-0 right-4"
 							initial={{ opacity: 0, scale: 0.8 }}
 							animate={{ opacity: 1, scale: 1 }}
 							transition={{
@@ -104,7 +112,7 @@ export const Hero = () => {
 						</motion.div>
 					</div>
 					<div className="border-t border-dashed border-neutral-50/25 my-3"></div>
-					<div className="text-sm layout-container leading-none">
+					<div className="sm:text-sm text-xs layout-container leading-none">
 						<motion.span
 							initial={{ opacity: 0, scale: 0.8 }}
 							animate={{ opacity: 1, scale: 1 }}
@@ -113,6 +121,7 @@ export const Hero = () => {
 								ease: 'easeOut',
 							}}
 							className="inline-flex flex-col w-fit"
+							{...useTextHover}
 						>
 							Based on Bangalore, India
 						</motion.span>

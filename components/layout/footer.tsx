@@ -1,24 +1,65 @@
 'use client';
-import { Linkedin, Instagram, Github } from 'lucide-react';
 import { TextScramble } from '@/components/ui/text-scramble';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { FlipDotDisplayAnimation } from '@/components/ui/flip-dot-display';
 import {
+	FlipDotDisplay,
+	FlipDotDisplayAnimation,
+} from '@/components/ui/flip-dot-display';
+import {
+	FlipDotDisplayIcon,
 	heart5x5,
 	trendUp20x12,
 } from '@/components/ui/flip-dot-display-frames';
 
+const linkedinIcon11x11: FlipDotDisplayIcon['frame'] = [
+	[1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+	[1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1],
+	[1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1],
+	[1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1],
+	[1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1],
+	[1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1],
+	[1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1],
+	[1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1],
+];
+const instagramIcon11x11: FlipDotDisplayIcon['frame'] = [
+	[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+	[1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+	[1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+	[1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
+	[1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1],
+	[1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1],
+	[1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1],
+	[1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1],
+	[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+	[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+	[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+];
+
+const githubIcon11x11: FlipDotDisplayIcon['frame'] = [
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //1
+	[0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0], //2
+	[0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0], //3
+	[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0], //4
+	[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0], //5
+	[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0], //6
+	[0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0], //7
+	[1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], //8
+	[0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0], //9
+	[0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], //10
+	[0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], //11
+];
+
 export const Footer = () => {
 	const [isHovered, setIsHovered] = useState(false);
-	const [isTrigger, setIsTrigger] = useState(false);
 
 	const handleMouseEnter = () => {
-		setIsTrigger(true);
 		setIsHovered(true);
 	};
 	const handleMouseLeave = () => {
-		setIsTrigger(true);
 		setIsHovered(false);
 	};
 
@@ -26,30 +67,30 @@ export const Footer = () => {
 
 	return (
 		<footer className="border-t border-dashed border-neutral-800" id="contacts">
-			<div className="layout-container py-16">
-				<div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+			<div className="layout-container py-6 pb-4 sm:py-16">
+				<div className="grid grid-cols-1 lg:grid-cols-3 sm:gap-12">
 					{/* Left Section - Main Content */}
 					<div className="lg:col-span-2">
 						<div className="mb-8">
 							<div
-								className="flex items-center mb-6"
+								className="flex items-center mb-4 sm:mb-6"
 								onMouseEnter={handleMouseEnter}
 								onMouseLeave={handleMouseLeave}
 							>
 								<div>
-									<h2 className="text-3xl font-bold text-white mb-2 font-mono">
+									<h2 className="sm:text-3xl text-lg font-bold text-white mb-2 font-mono">
 										{'// '}
 										<TextScramble as={'span'}>Let's build</TextScramble>
 									</h2>
-									<h3 className="text-3xl font-bold text-white font-mono">
+									<h3 className="sm:text-3xl text-lg font-bold text-white font-mono">
 										<TextScramble as={'span'}>Something great</TextScramble>
 									</h3>
 								</div>
-								<div className="ml-4 ">
+								<div className="sm:ml-4 ml-auto">
 									<div className="h-fit w-fit">
 										<FlipDotDisplayAnimation
 											className="ml-2 aspect-[20/12]"
-											cellClass="w-[4px]"
+											cellClass="sm:w-[4px] w-[3px]"
 											minOpacity={0.05}
 											frames={
 												isHovered
@@ -68,47 +109,65 @@ export const Footer = () => {
 							</div>
 
 							{/* Hire Me Button */}
-							<Button variant="outline" className="w-25 cursor-pointer" asChild>
+							<Button
+								variant="outline"
+								className="w-25 cursor-pointer mx-auto"
+								asChild
+							>
 								<a href="mailto:n4ndhu@gmail.com">Hire Me</a>
 							</Button>
 
 							{/* Social Media Icons */}
-							<div className="flex space-x-4 mt-8">
+							<div className="flex space-x-4 mt-8 sm:mt-8 justify-center sm:justify-start">
 								<a
-									href="https://linkedin.com"
+									href="https://www.linkedin.com/in/n4ndhu/"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="text-white hover:text-neutral-300 transition-colors"
 								>
-									<Linkedin className="size-6" />
+									<FlipDotDisplay
+										frame={linkedinIcon11x11}
+										grid={[11, 11]}
+										cellClass="sm:w-[3px] w-[2px]"
+									/>
 								</a>
 
 								<a
-									href="https://instagram.com"
+									href="https://www.instagram.com/n4ndhu/"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="text-white hover:text-neutral-300 transition-colors"
 								>
-									<Instagram className="size-6" />
+									<FlipDotDisplay
+										frame={instagramIcon11x11}
+										grid={[11, 11]}
+										cellClass="sm:w-[3px] w-[2px]"
+									/>
 								</a>
 
 								<a
-									href="https://github.com"
+									href="https://github.com/n4ndhu"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="text-white hover:text-neutral-300 transition-colors"
 								>
-									<Github className="size-6" />
+									<FlipDotDisplay
+										frame={githubIcon11x11}
+										grid={[11, 11]}
+										cellClass="sm:w-[3px] w-[2px]"
+									/>
 								</a>
 							</div>
 						</div>
 					</div>
 
 					{/* Right Section - Contact Info */}
-					<div className="lg:col-span-1">
-						<div className="text-right">
-							<h4 className="text-white font-mono mb-2">Contact Me</h4>
-							<p className="text-white font-mono mb-6">
+					<div className="sm:col-span-1 grid grid-cols-1 gap-1 justify-center items-center">
+						<div className="sm:text-right text-center">
+							<h4 className="text-white font-mono mb-2 text-sm sm:text-base">
+								Contact Me
+							</h4>
+							<p className="text-white font-mono mb-6 text-sm sm:text-base">
 								<a
 									href="mailto:n4ndhu@gmail.com"
 									className="underline decoration-dotted underline-offset-8 decoration-neutral-50/50 hover:decoration-neutral-50/100 transition-all duration-300"
@@ -116,7 +175,8 @@ export const Footer = () => {
 									n4ndhu@gmail.com
 								</a>
 							</p>
-
+						</div>
+						<div className="sm:text-right text-center">
 							{/* Download CV Button */}
 							<Button variant="outline" asChild>
 								<a

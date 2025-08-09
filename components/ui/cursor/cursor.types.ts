@@ -34,7 +34,7 @@ export const cursorStyles = {
 		className: 'bg-white',
 	},
 	pointer: {
-		size: 24,
+		size: 32,
 		className: 'bg-white rounded-full',
 	},
 	tooltip: {

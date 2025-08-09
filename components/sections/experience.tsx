@@ -1,5 +1,7 @@
+'use client';
 import { TextScramble } from '@/components/ui/text-scramble';
 import { ExperienceCard } from './experience-card';
+import { useCursorHover } from '@/components/ui/cursor';
 
 export interface Experience {
 	id: string;
@@ -45,25 +47,30 @@ const experiences: Experience[] = [
 ];
 
 export const Experience = () => {
+	const useTextHover = useCursorHover('text');
 	return (
-		<section className="py-20 px-4">
+		<section className="py-6 sm:py-20">
 			<div className="layout-container">
 				<div className=" mb-16">
-					<h2 className="text-4xl font-bold mb-4">
-						{'// '}
-						<TextScramble as={'span'}>Experience !</TextScramble>
+					<h2 className="text-2xl sm:text-4xl font-bold mb-4">
+						<span className="w-fit" {...useTextHover}>
+							{'// '}
+							<TextScramble as={'span'}>Experience !</TextScramble>
+						</span>
 					</h2>
-					<p className="text-neutral-400 text-lg">
-						<TextScramble as={'span'}>
-							A snapshot of my 10-year journey—leading teams, crafting
-							frontends, occasionally wrestling with the backend, and building
-							products that solved real problems.
-						</TextScramble>
+					<p className="text-neutral-400 sm:text-lg text-sm">
+						<span className="w-fit" {...useTextHover}>
+							<TextScramble as={'span'}>
+								A snapshot of my 10-year journey—leading teams, crafting
+								frontends, occasionally wrestling with the backend, and building
+								products that solved real problems.
+							</TextScramble>
+						</span>
 					</p>
 				</div>
 
-				<div className="relative grid grid-cols-4">
-					<div className="col-span-3">
+				<div className="relative grid sm:grid-cols-4 grid-cols-1">
+					<div className="sm:col-span-3 col-span-1">
 						{experiences.map((experience, index) => (
 							<ExperienceCard
 								key={experience.id}

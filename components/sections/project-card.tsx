@@ -17,9 +17,9 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
 	return (
-		<div className="group relative overflow-hidden border px-1 border-neutral-50/5 grid grid-cols-2 gap-8 items-center">
-			<div className="absolute w-1/4 h-full inset-x-0 border-r border-neutral-50/5 -z-0 "></div>
-			<div className="py-4 pl-7 relative z-10 bg-neutral-950">
+		<div className="group relative overflow-hidden border px-1 border-neutral-50/5 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-8 items-center">
+			<div className="absolute w-1/4 h-full inset-x-0 border-r border-neutral-50/5 -z-0 hidden sm:block"></div>
+			<div className="py-6 pl-4 sm:py-4 sm:pl-7 relative z-10 bg-neutral-950">
 				<h3 className="mb-4 text-white flex items-center">
 					{project.logoUrl && (
 						<Image
@@ -59,13 +59,13 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 				)}
 			</div>
 			{/* Project Image */}
-			<div className="border-l border-neutral-50/5 pl-1 py-1">
+			<div className="border-l border-neutral-50/5 sm:pl-1 sm:py-1 pb-1">
 				<div className="relative aspect-video overflow-hidden bg-neutral-900/20 border border-neutral-50/20 rounded-xs">
-					<div className="scale-80 hover:scale-100 transition-all duration-300">
+					<div className="sm:scale-80 hover:scale-100 transition-all duration-300">
 						<Image
 							src={project.imageUrl}
 							alt={project.title}
-							className=" aspect-video rounded-xs grayscale-100 group-hover:grayscale-0 transition-all duration-300 object-cover [object-position:_center_top]"
+							className=" aspect-video rounded-xs sm:grayscale-100 group-hover:grayscale-0 transition-all duration-300 object-cover [object-position:_center_top]"
 						/>
 					</div>
 				</div>

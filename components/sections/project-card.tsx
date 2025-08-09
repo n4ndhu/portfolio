@@ -52,7 +52,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 					<a
 						href={project.link + '?utm_source=portfolio'}
 						target="_blank"
-						className="inline-flex underline underline-offset-4 text-xs mt-4 decoration-dotted text-neutral-50/80"
+						className="inline-flex underline underline-offset-8 text-xs mt-4 decoration-dotted decoration-neutral-50/50 hover:decoration-neutral-50/100 transition-all duration-300 text-neutral-50/80"
 					>
 						View Project
 					</a>

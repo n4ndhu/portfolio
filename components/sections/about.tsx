@@ -6,99 +6,32 @@ import { TextScramble } from '@/components/ui/text-scramble';
 import { TextReveal } from '@/components/ui/text-reveal';
 import { StackedCarousel } from '@/components/ui/stacked-carousel';
 import { motion } from 'motion/react';
-
-import Image1 from '@/public/img/click-1.jpeg';
-import Image2 from '@/public/img/click-2.jpeg';
-import Image3 from '@/public/img/click-3.jpeg';
-import Image4 from '@/public/img/click-4.jpeg';
-import Image5 from '@/public/img/click-5.jpeg';
-import Image6 from '@/public/img/click-6.jpeg';
-import Image7 from '@/public/img/click-7.jpeg';
-import Image8 from '@/public/img/click-8.jpeg';
-import Image9 from '@/public/img/click-9.jpeg';
-import Image10 from '@/public/img/click-10.jpeg';
-import Image11 from '@/public/img/click-11.jpeg';
-import Image12 from '@/public/img/click-12.jpeg';
-import Image13 from '@/public/img/click-13.jpeg';
-import Image14 from '@/public/img/click-14.jpeg';
-import Image15 from '@/public/img/click-15.jpeg';
-import Image16 from '@/public/img/click-16.jpeg';
-import Image17 from '@/public/img/click-17.jpeg';
-import Image18 from '@/public/img/click-18.jpeg';
+import MountainSnow from '@/public/clicks/mountain-snow.jpg';
+import MountainSunSet from '@/public/clicks/mountain-sunset.jpg';
+import Forest from '@/public/clicks/forest.jpg';
+import Tree from '@/public/clicks/tree.jpg';
+import BirdSunSet from '@/public/clicks/bird-sunset.jpg';
 
 const aboutImages = [
 	{
-		src: Image7,
-		alt: 'Click 7',
+		src: MountainSnow,
+		alt: 'Manali Mountain',
 	},
 	{
-		src: Image2,
-		alt: 'Click 2',
+		src: MountainSunSet,
+		alt: 'Manali Mountain',
 	},
 	{
-		src: Image3,
-		alt: 'Click 3',
+		src: Forest,
+		alt: 'Jibhi',
 	},
 	{
-		src: Image4,
-		alt: 'Click 4',
+		src: Tree,
+		alt: 'Kodaikanal',
 	},
 	{
-		src: Image5,
-		alt: 'Click 5',
-	},
-	{
-		src: Image6,
-		alt: 'Click 6',
-	},
-
-	{
-		src: Image8,
-		alt: 'Click 8',
-	},
-	{
-		src: Image9,
-		alt: 'Click 9',
-	},
-	{
-		src: Image10,
-		alt: 'Click 10',
-	},
-	{
-		src: Image11,
-		alt: 'Click 11',
-	},
-	{
-		src: Image12,
-		alt: 'Click 12',
-	},
-	{
-		src: Image1,
-		alt: 'Click 1',
-	},
-	{
-		src: Image13,
-		alt: 'Click 13',
-	},
-	{
-		src: Image14,
-		alt: 'Click 14',
-	},
-	{
-		src: Image15,
-		alt: 'Click 15',
-	},
-	{
-		src: Image16,
-		alt: 'Click 16',
-	},
-	{
-		src: Image17,
-		alt: 'Click 17',
-	},
-	{
-		src: Image18,
-		alt: 'Click 18',
+		src: BirdSunSet,
+		alt: 'Kochi',
 	},
 ];
 
@@ -236,12 +169,16 @@ export const About = () => {
 						<TextReveal className="rotate-90 inline-flex w-fit">:)</TextReveal>
 					</div>
 					<div className="pt-10 sm:pt-20 pb-10 sm:pb-0">
-						<div className="sm:sticky sm:top-30 ">
+						<div className="sm:sticky sm:top-30 flex flex-col items-center">
 							<StackedCarousel
 								images={aboutImages}
-								className="w-full max-w-56 mx-auto sm:mx-0"
+								className="w-full max-w-56 mx-auto sm:mx-0 block"
 								maxRotation={6}
 							/>
+
+							<div className="text-left text-xs text-neutral-50/20 mt-10">
+								Psst! You can drag the images ;)
+							</div>
 						</div>
 					</div>
 				</div>

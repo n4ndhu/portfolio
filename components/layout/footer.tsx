@@ -40,7 +40,6 @@ const instagramIcon11x11: FlipDotDisplayIcon['frame'] = [
 ];
 
 const githubIcon11x11: FlipDotDisplayIcon['frame'] = [
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //1
 	[0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0], //2
 	[0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0], //3
 	[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0], //4
@@ -50,6 +49,7 @@ const githubIcon11x11: FlipDotDisplayIcon['frame'] = [
 	[1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], //8
 	[0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0], //9
 	[0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], //10
+	[0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], //1
 	[0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], //11
 ];
 
@@ -128,7 +128,7 @@ export const Footer = () => {
 									<FlipDotDisplay
 										frame={linkedinIcon11x11}
 										grid={[11, 11]}
-										cellClass="sm:w-[3px] w-[2px]"
+										cellClass="w-[1px]"
 									/>
 								</a>
 
@@ -141,7 +141,7 @@ export const Footer = () => {
 									<FlipDotDisplay
 										frame={instagramIcon11x11}
 										grid={[11, 11]}
-										cellClass="sm:w-[3px] w-[2px]"
+										cellClass="w-[1px]"
 									/>
 								</a>
 
@@ -154,7 +154,7 @@ export const Footer = () => {
 									<FlipDotDisplay
 										frame={githubIcon11x11}
 										grid={[11, 11]}
-										cellClass="sm:w-[3px] w-[2px]"
+										cellClass="w-[1px]"
 									/>
 								</a>
 							</div>

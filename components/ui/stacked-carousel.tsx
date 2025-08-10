@@ -58,7 +58,7 @@ export function StackedCarouselClient({
 	return (
 		<div
 			className={cn(
-				'relative w-full flex items-center justify-center aspect-[9/13] select-none',
+				'relative w-full flex items-center justify-center aspect-[3/4] select-none',
 				className
 			)}
 		>
@@ -70,7 +70,7 @@ export function StackedCarouselClient({
 						}
 						dragSnapToOrigin
 						key={index}
-						className="absolute w-full aspect-[9/13] top-0 "
+						className="absolute w-full aspect-[3/4] top-0 "
 						style={{
 							zIndex: zIndexOfImages[index],
 						}}

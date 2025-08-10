@@ -33,7 +33,7 @@ export default function RootLayout({
 				className={`${primaryFont.variable} bg-neutral-950 text-neutral-50 font-primary overflow-x-hidden dark max-w-full`}
 			>
 				<CursorProvider>
-					<Noise opacity={0.3} speed={0.5} scale={8} lightColor="#d4d4d4" />
+					<Noise opacity={0.15} speed={0.5} scale={8} lightColor="#d4d4d4" />
 					<SwissLines />
 					<Header />
 					{children}

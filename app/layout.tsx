@@ -11,6 +11,11 @@ import { Footer } from '@/components/layout/footer';
 import { Intro } from '@/components/ui/intro';
 import { SwissLines } from '@/components/ui/swiss-lines';
 
+const siteUrl = 'https://n4ndhu.me';
+
+const title = 'N4ndhu - Web Developer';
+const description = `I’m a web developer who loves creating clean, user-friendly websites that work well, look good, and make life easier.`;
+
 const primaryFont = Fira_Mono({
 	weight: ['400', '500', '700'],
 	variable: '--font-primary',
@@ -18,8 +23,62 @@ const primaryFont = Fira_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'N4ndhu - Web Developer',
-	description: `I’m a web developer who loves creating clean, user-friendly websites that work well, look good, and make life easier.`,
+	title,
+	description,
+	keywords: [
+		'Angular',
+		'Svelte',
+		'React',
+		'Tailwind',
+		'TypeScript',
+		'JavaScript',
+		'Web Development',
+		'UI/UX',
+		'Frontend Developer',
+		'Portfolio',
+	],
+	creator: 'n4ndhu',
+	metadataBase: new URL(siteUrl),
+	authors: [{ name: 'Nandhu', url: 'https://github.com/n4ndhu' }],
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			'max-video-preview': -1,
+			'max-image-preview': 'large',
+			'max-snippet': -1,
+		},
+	},
+	openGraph: {
+		type: 'website',
+		title,
+		locale: 'en_IN',
+		description,
+		siteName: title,
+		url: siteUrl,
+		images: [
+			{
+				url: `${siteUrl}/og.png`,
+				width: 1200,
+				height: 630,
+				alt: title,
+			},
+		],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title,
+		description,
+		images: [`${siteUrl}/og.png`],
+		creator: 'n4ndhu',
+	},
+	icons: {
+		icon: '/favicon.ico',
+		shortcut: '/favicon-16x16.png',
+		apple: '/apple-touch-icon.png',
+	},
 };
 
 export default function RootLayout({

@@ -49,38 +49,42 @@ const experiences: Experience[] = [
 export const Experience = () => {
 	const useTextHover = useCursorHover('text');
 	return (
-		<section className="py-6 sm:py-20">
-			<div className="layout-container">
-				<div className=" mb-16">
-					<h2 className="text-2xl sm:text-4xl font-bold mb-4">
-						<span className="w-fit" {...useTextHover}>
-							{'// '}
-							<TextScramble as={'span'}>Experience !</TextScramble>
-						</span>
-					</h2>
-					<p className="text-neutral-400 sm:text-lg text-sm">
-						<span className="w-fit" {...useTextHover}>
-							<TextScramble as={'span'}>
-								A snapshot of my 10-year journey—leading teams, crafting
-								frontends, occasionally wrestling with the backend, and building
-								products that solved real problems.
-							</TextScramble>
-						</span>
-					</p>
-				</div>
-
-				<div className="relative grid sm:grid-cols-4 grid-cols-1">
-					<div className="sm:col-span-3 col-span-1">
-						{experiences.map((experience, index) => (
-							<ExperienceCard
-								key={experience.id}
-								experience={experience}
-								isLast={index === experiences.length - 1}
-							/>
-						))}
+		<>
+			<section className="pt-6 sm:pt-6">
+				<div className="layout-container">
+					<div className="mb-16 sm:w-1/2 sm:px-6">
+						<h2 className="text-2xl sm:text-4xl font-bold mb-4 block">
+							<span className="w-fit" {...useTextHover}>
+								{'// '}
+								<TextScramble as={'span'}>Experience !</TextScramble>
+							</span>
+						</h2>
+						<p className="text-neutral-400 sm:text-base text-sm">
+							<span className="w-fit" {...useTextHover}>
+								<TextScramble as={'span'}>
+									A snapshot of my 10-year journey—leading teams.
+								</TextScramble>
+							</span>
+						</p>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+			<section className="pb-6 sm:pb-10 border-t ">
+				<div className="layout-container">
+					<div className="relative grid sm:grid-cols-4 grid-cols-1">
+						<div className="sm:col-span-3 col-span-1">
+							{experiences.map((experience, index) => (
+								<ExperienceCard
+									key={experience.id}
+									experience={experience}
+									isLast={index === experiences.length - 1}
+									isFirst={index === 0}
+								/>
+							))}
+						</div>
+					</div>
+				</div>
+			</section>
+		</>
 	);
 };

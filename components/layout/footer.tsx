@@ -10,6 +10,7 @@ import {
 	FlipDotDisplayIcon,
 	heart5x5,
 	trendUp20x12,
+	trendUp20x12Frame,
 } from '@/components/ui/flip-dot-display-frames';
 
 const linkedinIcon11x11: FlipDotDisplayIcon['frame'] = [
@@ -40,17 +41,17 @@ const instagramIcon11x11: FlipDotDisplayIcon['frame'] = [
 ];
 
 const githubIcon11x11: FlipDotDisplayIcon['frame'] = [
-	[0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0], //2
-	[0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0], //3
-	[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0], //4
-	[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0], //5
-	[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0], //6
-	[0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0], //7
-	[1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], //8
-	[0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0], //9
-	[0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], //10
-	[0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], //1
-	[0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0], //11
+	[0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0],
+	[0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0],
+	[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+	[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+	[0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+	[0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0],
+	[1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+	[0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0],
+	[0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+	[0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+	[0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
 ];
 
 export const Footer = () => {
@@ -73,33 +74,27 @@ export const Footer = () => {
 					<div className="lg:col-span-2">
 						<div className="mb-8">
 							<div
-								className="flex items-center mb-4 sm:mb-6"
+								className="flex items-center mb-4 sm:mb-6 sm:grid sm:grid-cols-2"
 								onMouseEnter={handleMouseEnter}
 								onMouseLeave={handleMouseLeave}
 							>
-								<div>
-									<h2 className="sm:text-3xl text-lg font-bold text-white mb-2">
+								<div className="sm:pl-6">
+									<h2 className="sm:text-2xl text-lg font-bold text-white mb-2">
 										{'// '}
 										<TextScramble as={'span'}>Let&apos;s build</TextScramble>
 									</h2>
-									<h3 className="sm:text-3xl text-lg font-bold text-white">
+									<h3 className="sm:text-2xl text-lg font-bold text-white">
 										<TextScramble as={'span'}>Something great</TextScramble>
 									</h3>
 								</div>
-								<div className="sm:ml-4 ml-auto">
+								<div className="sm:ml-4 ml-3 sm:mr-auto">
 									<div className="h-fit w-fit">
 										<FlipDotDisplayAnimation
 											className="ml-2 aspect-[20/12]"
 											cellClass="sm:w-[4px] w-[3px]"
 											minOpacity={0.05}
 											frames={
-												isHovered
-													? trendUp20x12.frames
-													: [
-															trendUp20x12.frames![
-																trendUp20x12.frames!.length - 1
-															],
-														]
+												isHovered ? trendUp20x12.frames : [trendUp20x12Frame]
 											}
 											fps={trendUp20x12.fps}
 											grid={trendUp20x12.grid}
@@ -111,14 +106,14 @@ export const Footer = () => {
 							{/* Hire Me Button */}
 							<Button
 								variant="outline"
-								className="w-25 cursor-pointer mx-auto"
+								className="w-25 cursor-pointer mx-auto sm:ml-6"
 								asChild
 							>
 								<a href="mailto:n4ndhu@gmail.com">Hire Me</a>
 							</Button>
 
 							{/* Social Media Icons */}
-							<div className="flex space-x-4 mt-8 sm:mt-8 justify-center sm:justify-start">
+							<div className="flex space-x-4 mt-8 sm:mt-8 justify-center sm:justify-start sm:pl-6">
 								<a
 									href="https://www.linkedin.com/in/n4ndhu/"
 									target="_blank"
@@ -162,7 +157,7 @@ export const Footer = () => {
 					</div>
 
 					{/* Right Section - Contact Info */}
-					<div className="sm:col-span-1 grid grid-cols-1 gap-1 justify-center items-center">
+					<div className="sm:col-span-1 grid grid-cols-1 gap-1 justify-center items-center sm:h-fit sm:pr-6">
 						<div className="sm:text-right text-center">
 							<h4 className="text-white font-mono mb-2 text-sm sm:text-base">
 								Contact Me
@@ -203,13 +198,13 @@ export const Footer = () => {
 			<div className="border-t border-dashed border-neutral-800 pt-8 pb-8">
 				<div className="layout-container">
 					<div className="flex flex-col md:flex-row justify-between items-center">
-						<p className="text-neutral-400 text-sm">
+						<p className="text-neutral-400 text-sm ml-2">
 							© {currentYear} Nandhu. All rights reserved.
 						</p>
 						<div className="text-neutral-400 text-sm mt-2 md:mt-0 inline-flex items-center">
 							Built with{' '}
 							<FlipDotDisplayAnimation
-								className="ml-2"
+								className="ml-2 mr-2"
 								cellClass="w-[3px]"
 								rgb="225 29 72"
 								{...heart5x5}

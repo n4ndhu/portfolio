@@ -130,11 +130,11 @@
 	.layout-container {
 		@apply max-w-7xl mx-auto px-4 sm:px-6;
 	}
-	.cursor-pointer,
+	/* .cursor-pointer,
 	a,
 	button {
 		cursor: none !important;
-	}
+	} */
 }
 
 /* CSS Debug helper */

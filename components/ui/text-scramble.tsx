@@ -1,6 +1,6 @@
 'use client';
-import { type JSX, useEffect, useRef, useState } from 'react';
-import { motion, MotionProps } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
+import { motion, MotionProps, useInView } from 'motion/react';
 
 export type TextScrambleProps = {
 	children: string;
@@ -14,7 +14,7 @@ export type TextScrambleProps = {
 } & MotionProps;
 
 const defaultChars =
-	'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+';
+	'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
 export function TextScramble({
 	children,
@@ -22,44 +22,40 @@ export function TextScramble({
 	speed = 0.04,
 	characterSet = defaultChars,
 	className,
-	as: Component = 'span',
-	trigger = true,
+	as: As = 'span',
 	onScrambleComplete,
 	...props
 }: TextScrambleProps) {
-	const MotionComponent = motion.create(
-		Component as keyof JSX.IntrinsicElements
-	);
+	const ref = useRef(null);
+
+	const MotionComponent = motion.create(As);
 	const [displayText, setDisplayText] = useState(children);
-	const intervalRef = useRef<NodeJS.Timeout | null>(null);
-	const hasRun = useRef(false);
+	const [isAnimating, setIsAnimating] = useState(false);
+	const [isCompleted, setIsCompleted] = useState<false | string>(false);
+
+	const isInView = useInView(ref, { once: true });
+
+	const text = children;
 
 	useEffect(() => {
-		// Clear any existing interval
-		if (intervalRef.current) {
-			clearInterval(intervalRef.current);
-			intervalRef.current = null;
-		}
+		if (isAnimating || isCompleted === text || !isInView) return;
+		setIsAnimating(true);
 
-		// Only run if trigger is true and hasn't run before
-		if (!trigger || hasRun.current) return;
-
-		hasRun.current = true;
-		const steps = Math.floor(duration / speed);
+		const steps = duration / speed;
 		let step = 0;
 
-		intervalRef.current = setInterval(() => {
+		const interval = setInterval(() => {
 			let scrambled = '';
 			const progress = step / steps;
 
-			for (let i = 0; i < children.length; i++) {
-				if (children[i] === ' ') {
+			for (let i = 0; i < text.length; i++) {
+				if (text[i] === ' ') {
 					scrambled += ' ';
 					continue;
 				}
 
-				if (progress * children.length > i) {
-					scrambled += children[i];
+				if (progress * text.length > i) {
+					scrambled += text[i];
 				} else {
 					scrambled +=
 						characterSet[Math.floor(Math.random() * characterSet.length)];
@@ -70,33 +66,29 @@ export function TextScramble({
 			step++;
 
 			if (step > steps) {
-				if (intervalRef.current) {
-					clearInterval(intervalRef.current);
-					intervalRef.current = null;
-				}
-				setDisplayText(children);
+				clearInterval(interval);
+				setDisplayText(text);
+				setIsCompleted(text);
+				setIsAnimating(false);
 				onScrambleComplete?.();
 			}
 		}, speed * 1000);
-
-		// Cleanup function
-		return () => {
-			if (intervalRef.current) {
-				clearInterval(intervalRef.current);
-				intervalRef.current = null;
-			}
-		};
-	}, []); // Empty dependency array - only run once on mount
-
-	// Reset when children or trigger changes
-	useEffect(() => {
-		hasRun.current = false;
-		setDisplayText(children);
-	}, [children, trigger]);
+	}, [
+		isAnimating,
+		duration,
+		speed,
+		characterSet,
+		text,
+		onScrambleComplete,
+		isCompleted,
+		isInView,
+	]);
 
 	return (
-		<MotionComponent className={className} {...props}>
-			{displayText}
-		</MotionComponent>
+		<span ref={ref}>
+			<MotionComponent className={className} {...props}>
+				{displayText}
+			</MotionComponent>
+		</span>
 	);
 }

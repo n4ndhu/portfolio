@@ -13,23 +13,23 @@ export const Hero = () => {
 
 	return (
 		<>
-			<div className="relative isolate overflow-visible min-h-dvh flex flex-col">
+			<div className="relative isolate overflow-visible min-h-screen flex flex-col">
 				<div className="hidden sm:block">
 					<HeroCircle
-						className="absolute w-[50%] top-[30%] -left-[20%]"
+						className="absolute w-[50%] top-[30%] -left-[20%] -z-10"
 						direction="clockwise"
 						speed={60}
 					/>
 					<HeroCircle
-						className="absolute w-[50%] -top-[30%] -right-[20%]"
+						className="absolute w-[50%] -top-[30%] -right-[20%] -z-10"
 						direction="clockwise"
 						speed={60}
 					/>
 				</div>
 
-				<div className="layout-container my-auto flex flex-col justify-center w-full ">
+				<div className="layout-container my-auto flex flex-col justify-center w-full pl-8 sm:pl-12 ">
 					<motion.h1
-						className="sm:text-4xl text-2xl font-bold mb-6"
+						className="sm:text-4xl text-2xl font-bold mb-6 uppercase"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{
@@ -44,7 +44,7 @@ export const Hero = () => {
 						</div>
 					</motion.h1>
 					<motion.p
-						className="sm:text-xl text-base"
+						className="sm:text-lg text-base sm:w-1/2"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{
@@ -55,20 +55,14 @@ export const Hero = () => {
 					>
 						<span className="block mb-3 sm:mb-0" {...useTextHover}>
 							<TextScramble as={'span'} duration={1}>
-								I’ve been building websites for 10 years, mostly focusing on the
-								frontend where things take shape.
-							</TextScramble>
-						</span>
-						<span {...useTextHover}>
-							<TextScramble as={'span'} duration={1}>
-								I enjoy creating clean, usable interfaces that feel natural to
-								interact with.
+								Seasoned developer crafting web applications that are clean,
+								elegant, and built to last.
 							</TextScramble>
 						</span>
 					</motion.p>
 				</div>
 				<div className="pb-6 ">
-					<div className="layout-container space-x-2 relative">
+					<div className="layout-container space-x-2 relative pr-12 pl-8">
 						{skills.map((skill, index) => {
 							return (
 								<motion.span
@@ -87,9 +81,8 @@ export const Hero = () => {
 								</motion.span>
 							);
 						})}
-
 						<motion.div
-							className="absolute bottom-0 sm:right-0 right-4"
+							className="absolute bottom-0 sm:right-10 right-4"
 							initial={{ opacity: 0, scale: 0.8 }}
 							animate={{ opacity: 1, scale: 1 }}
 							transition={{
@@ -106,8 +99,8 @@ export const Hero = () => {
 							/>
 						</motion.div>
 					</div>
-					<div className="border-t border-dashed border-neutral-50/25 my-3"></div>
-					<div className="sm:text-sm text-xs layout-container leading-none">
+					<div className="border-t border-dashed border-neutral-50/5 my-3"></div>
+					<div className="sm:text-sm text-xs layout-container leading-none pl-8">
 						<motion.span
 							initial={{ opacity: 0, scale: 0.8 }}
 							animate={{ opacity: 1, scale: 1 }}
@@ -121,6 +114,7 @@ export const Hero = () => {
 							Based in Bangalore, India
 						</motion.span>
 					</div>
+					<div className="border-t border-dashed border-neutral-50/5 mt-3"></div>
 				</div>
 			</div>
 		</>

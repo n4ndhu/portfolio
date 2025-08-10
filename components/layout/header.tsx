@@ -101,7 +101,7 @@ export const NavLinks = ({
 		<Link
 			href={link}
 			className={cn(
-				'inline-flex bg-neutral-950 border-neutral-50/20 text-neutral-50/90 py-2 sm:py-1 px-4  border rounded-xs leading-normal text-sm items-center cursor-none',
+				'inline-flex bg-neutral-950 border-neutral-50/20 text-neutral-50/90 py-2 sm:py-1 px-4 border rounded-xs leading-normal text-sm items-center',
 				className
 			)}
 			{...pointerHover}
@@ -255,6 +255,7 @@ export const Header = () => {
 
 	return (
 		<section className={cn('fixed inset-x-0 top-6 z-50 w-full')}>
+			<div className="absolute inset-x-0 h-full border-y border-neutral-50/5 -z-10"></div>
 			<div className="layout-container" ref={containerRef}>
 				<motion.header
 					className="flex items-center justify-between pl-4 pr-2 py-2 bg-neutral-900/90 backdrop-blur-lg border border-neutral-50/10 rounded-xs max-w-full"
@@ -275,7 +276,7 @@ export const Header = () => {
 				>
 					<Link
 						href="/"
-						className="active:scale-95 origin-left transition-all duration-50 scale-100 transform cursor-none"
+						className="active:scale-95 origin-left transition-all duration-50 scale-100 transform"
 						ref={logoRef}
 						{...useCursorHover('pointer')}
 					>

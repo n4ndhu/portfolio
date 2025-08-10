@@ -139,8 +139,8 @@ export const About = () => {
 				</section>
 			</div>
 			<div className="layout-container">
-				<div className="py-10 sm:py-32 grid sm:grid-cols-3 grid-cols-1 sm:gap-10 gap-4 relative">
-					<div className="sm:text-3xl text-xl  mx-auto font-medium sm:col-span-2 col-span-1">
+				<div className="py-10 sm:py-32 grid sm:grid-cols-4 grid-cols-1 sm:gap-0 gap-4 relative">
+					<div className="sm:text-3xl text-xl  mx-auto font-medium sm:col-span-3 col-span-1">
 						<TextReveal>
 							Hey, I&apos;m Nandhu a web developer with 10 years of experience
 							building websites, writing code, and occasionally breaking things

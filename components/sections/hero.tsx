@@ -7,12 +7,7 @@ import { motion } from 'motion/react';
 import { useCursorHover } from '@/components/ui/cursor';
 
 export const Hero = () => {
-	const skills = [
-		'Web Development',
-		'UI/UX Design',
-		'SEO',
-		'Performance Optimization',
-	];
+	const skills = ['Web Development', 'UI/UX Design', 'Creative Coding'];
 
 	const useTextHover = useCursorHover('text');
 
@@ -123,7 +118,7 @@ export const Hero = () => {
 							className="inline-flex flex-col w-fit"
 							{...useTextHover}
 						>
-							Based on Bangalore, India
+							Based in Bangalore, India
 						</motion.span>
 					</div>
 				</div>

@@ -62,7 +62,7 @@ export function Noise({
 
 	return (
 		<div
-			className={`fixed inset-0 w-dvw h-dvh pointer-events-none z-999 ${className}`}
+			className={`fixed inset-0 w-full h-dvh pointer-events-none z-999 ${className}`}
 			style={{ opacity: validOpacity }}
 		>
 			<svg

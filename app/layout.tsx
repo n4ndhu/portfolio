@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Fira_Mono } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/header';
-import { Noise } from '@/components/ui/noise';
+// import { Noise } from '@/components/ui/noise';
 import { CursorProvider, Cursor } from '@/components/ui/cursor';
 import ScrollToHash from '@/components/ui/scroll-to-hash';
 import { Footer } from '@/components/layout/footer';
@@ -27,10 +27,10 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${primaryFont.variable} bg-neutral-950 text-neutral-50 font-primary overflow-x-hidden dark max-w-dvw`}
+				className={`${primaryFont.variable} bg-neutral-950 text-neutral-50 font-primary overflow-x-hidden dark max-w-full`}
 			>
 				<CursorProvider>
-					<Noise opacity={0.3} speed={0.5} scale={8} lightColor="#d4d4d4" />
+					{/* <Noise opacity={0.3} speed={0.5} scale={8} lightColor="#d4d4d4" /> */}
 					<Header />
 					{children}
 					<Footer />

@@ -118,7 +118,7 @@ export const Works = () => {
 					</p>
 				</div>
 
-				<div className="grid grid-cols-1 sm:gap-px gap-2">
+				<div className="grid grid-cols-1 gap-4">
 					{projects.map(project => (
 						<ProjectCard key={project.id} project={project} />
 					))}

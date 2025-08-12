@@ -10,6 +10,7 @@ import ScrollToHash from '@/components/ui/scroll-to-hash';
 import { Footer } from '@/components/layout/footer';
 import { Intro } from '@/components/ui/intro';
 import { SwissLines } from '@/components/ui/swiss-lines';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const siteUrl = 'https://n4ndhu.me';
 
@@ -102,6 +103,7 @@ export default function RootLayout({
 				</CursorProvider>
 				<Intro />
 			</body>
+			<GoogleAnalytics gaId="G-ECGTVB7X7B" />
 		</html>
 	);
 }

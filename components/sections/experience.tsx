@@ -69,7 +69,7 @@ export const Experience = () => {
 					</div>
 				</div>
 			</section>
-			<section className="pb-6 sm:pb-10 border-t ">
+			<section className="pb-6 sm:pb-10 border-t border-dashed border-neutral-50/5">
 				<div className="layout-container">
 					<div className="relative grid sm:grid-cols-4 grid-cols-1">
 						<div className="sm:col-span-3 col-span-1">

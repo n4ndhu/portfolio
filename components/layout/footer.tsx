@@ -67,7 +67,10 @@ export const Footer = () => {
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className="border-t border-dashed border-neutral-800" id="contacts">
+		<footer
+			className="border-t border-dashed border-neutral-50/5"
+			id="contacts"
+		>
 			<div className="layout-container py-6 pb-4 sm:py-16">
 				<div className="grid grid-cols-1 lg:grid-cols-3 sm:gap-12">
 					{/* Left Section - Main Content */}
@@ -195,7 +198,7 @@ export const Footer = () => {
 
 				{/* Bottom Border */}
 			</div>
-			<div className="border-t border-dashed border-neutral-800 pt-8 pb-8">
+			<div className="border-t border-dashed border-neutral-50/5 pt-8 pb-8">
 				<div className="layout-container">
 					<div className="flex flex-col md:flex-row justify-between items-center">
 						<p className="text-neutral-400 text-sm ml-2">
